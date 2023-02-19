@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<mapper namespace="com.mhj.s2.Notice.NoticeDAO">
+	
+		 <sql id="searchCondition">
+	 		 <if test="kind == 'contents'">
+	 			WHERE NOBODY LIKE  '%' || #{search} || '%'
+	 		</if>
+	 		
+	 		<if test="kind == 'title'">
+	 			WHERE NOHEAD LIKE  '%' || #{search} || '%'
+	 		</if>
+	 	
+	 	</sql>
+ 	
+	 	<sql id="searchCondition2">
+	 		WHERE
+							
+				<choose>
+					<when test="kind == 'contents'">
+						NOBODY  
+					</when>
+					<otherwise>
+						NOHEAD
+					</otherwise>
+				</choose>
+			 LIKE  '%' || #{search} || '%'
+	 	
+	 	</sql>
+	  	<select id="getNoticeCount" parameterType="PagerK" resultType="Long">
+	  		SELECT COUNT(NONUM) FROM NOTICE
+	  		
+	  		<include refid="searchCondition"></include>
+	  		
+	  	</select>
+		<select id="getNoticeList" parameterType="Pagerk" resultType="NoticeDTO">
+	  		SELECT * FROM(
+	  			SELECT ROWNUM R , B.* FROM(
+	  				SELECT * FROM NOTICE
+	  					WHERE 
+	  						<choose>
+	  							<when test="kind=='contents'">
+	  								NOBODY
+	  							</when>
+	  							<otherwise>
+	  								NOHEAD
+	  							</otherwise>
+	  						</choose>
+	  					LIKE '%'||#{search}||'%'
+	  					ORDER BY NONUM DESC
+	  			)B
+	  		)WHERE R BETWEEN #{startRow} AND #{lastRow}
+	  	</select>
+	  	<select id="getNoticeDetail" parameterType="NoticeDTO" resultMap="noticeDetailResult">
+	  		SELECT N.*, NI.* FROM NOTICE N LEFT OUTER JOIN NOTICEIMG NI ON (N.NONUM = NI.NONUM) 
+	  		WHERE N.NONUM=#{noNum}
+	  	</select>
+	  	<resultMap type="NoticeDTO" id="noticeDetailResult">
+	  		<!-- Primary Key -->
+	  		<id column="NONUM" property="noNum"/>
+	  		<!-- 그외 나머지 -->
+	  		<result column="NOHEAD" property="noHead"/>
+	  		<result column="NOBODY" property="noBody"/>
+	  		<result column="NOUSER" property="noUser"/>
+	  		<result column="NODATE" property="noDate"/>
+	  		<!-- 1:1 -->
+	  		<association property="noticeImgDTO" javaType="NoticeImgDTO">
+	  			<id column="FILENUM" property="fileNum"/>
+	  			<result column="FILENAME" property="fileName"/>
+	  			<result column="ORINAME" property="oriName"/>
+	  		</association>
+	  		<!-- 1:N -->
+	  		<!-- <collection property=""></collection> -->
+	  	</resultMap>
+	  	
+	  	<insert id="setNoticeAdd" parameterType="NoticeDTO">
+	 		<selectKey keyProperty="noNum" resultType="Long" order="BEFORE">
+	 			SELECT NOTICE_SEQ.NEXTVAL FROM DUAL
+	 		</selectKey>
+	 		INSERT INTO NOTICE 
+	 		VALUES (#{noNum} ,#{noHead},#{noBody},#{noDate},#{noUser})
+	 	</insert>
+	  	<delete id="setNoticeDelete" parameterType="NoticeDTO">
+	  		DELETE NOTICE WHERE NONUM=#{noNum}
+	  	</delete>
+	  	<update id="setNoticeUpdate" parameterType="NoticeDTO">
+	  		UPDATE NOTICE SET NOHEAD=#{noHead},NOBODY=#{noBody},
+	  		WHERE NONUM=#{noNum}
+	  	</update>
+	  	<insert id="setNoticeImgAdd" parameterType="NoticeImgDTO">
+	 		INSERT INTO NOTICEIMG
+	 		VALUES (NOTICE_SEQ.NEXTVAL, #{noNum}, #{fileName}, #{oriName})
+	 	</insert>
+	</mapper>
