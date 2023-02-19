@@ -1,4 +1,4 @@
-package com.mhj.s2.Notice;
+package com.mhj.s2.notice;
 
 public class NoticeImgDTO {
 	private Long fileNum;

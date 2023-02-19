@@ -4,8 +4,8 @@
 	 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 	  <configuration>
   	<typeAliases>
-  		<typeAlias type="com.mhj.s2.Notice.NoticeDTO" alias="NoticeDTO"/>
-  		<typeAlias type="com.mhj.s2.Notice.NoticeImgDTO" alias="NoticeImgDTO" />
+  		<typeAlias type="com.mhj.s2.notice.NoticeDTO" alias="NoticeDTO"/>
+  		<typeAlias type="com.mhj.s2.notice.NoticeImgDTO" alias="NoticeImgDTO" />
   		<typeAlias type="com.mhj.s2.util.PagerK" alias="PagerK"/>
   		<typeAlias type="java.lang.Long" alias="Long"/>
   	</typeAliases>

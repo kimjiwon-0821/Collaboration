@@ -25,7 +25,7 @@
 	</bean>
 
 	<!-- sqlSession 객체 생성 -->
-	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession">
+	<bean class="org.mybatis.spring.SqlSessionTemplate" id="SqlSession">
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean"></constructor-arg>
 	</bean>
 	
