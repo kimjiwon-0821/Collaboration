@@ -1,5 +1,6 @@
 package com.mhj.s2;
 
-public class Test {
 
+public class Test {
+	
 }

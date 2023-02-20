@@ -5,13 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>게시물 추가</title>
+<c:import url="../template/common_css.jsp"></c:import>
 </head>
 <body>
 <div class="container-fluid my-5">
-   <div class="row col-md-4 mx-auto text-center border-bottom border-dark pb-2">
-     <p class="fs-2" style="font-family: 'Impact'">Notice Add Page</p>
-   </div>
+   <div class="row mb-4 ">
+		<h1 class="col-md-7 mx-auto text-center border-bottom border-dark pb-4">Notice Add Page</h1>
+	</div>
    <form action="./add" method = "post" enctype="multipart/form-data">
       <div class="row col-md-4 mx-auto my-5">
          <div class="fw-bold fs-5 col-12">
@@ -34,10 +35,11 @@
          </div>         
          
          <div class="row justify-content-center my-5">
-            <button type="submit" class="btn btn-outline-warning col-2">전송</button>
+            <button type="submit" class="btn btn-primary col-2">전송</button>
          </div>
       </div>
    </form>
 </div>
+<c:import url="../template/common_js.jsp"></c:import>
 </body>
 </html>

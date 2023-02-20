@@ -65,6 +65,7 @@
 	  		<result column="NOHEAD" property="noHead"/>
 	  		<result column="NOBODY" property="noBody"/>
 	  		<result column="NOUSER" property="noUser"/>
+	  		<result column="NOWATCH" property="noWatch"/>
 	  		<result column="NODATE" property="noDate"/>
 	  		<!-- 1:1 -->
 	  		<association property="noticeImgDTO" javaType="NoticeImgDTO">
@@ -81,7 +82,7 @@
 	 			SELECT NOTICE_SEQ.NEXTVAL FROM DUAL
 	 		</selectKey>
 	 		INSERT INTO NOTICE 
-	 		VALUES (#{noNum} ,#{noHead},#{noBody},SYSDATE,#{noUser})
+	 		VALUES (#{noNum} ,#{noHead},#{noBody},#{noUser},SYSDATE,WATCH_SEQ.NEXTVAL)
 	 	</insert>
 	  	<delete id="setNoticeDelete" parameterType="NoticeDTO">
 	  		DELETE NOTICE WHERE NONUM=#{noNum}

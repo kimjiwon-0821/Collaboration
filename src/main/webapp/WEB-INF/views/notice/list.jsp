@@ -6,12 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>공지사항</title>
-
+<c:import url="../template/common_css.jsp"></c:import>
 </head>
 <body>
 <div class="container-fluid my-5">
 	<div class="row mb-4 ">
-		<h1 class="col-md-7 mx-auto text-center border-bottom border-dark pb-4">BankBook List Page</h1>
+		<h1 class="col-md-7 mx-auto text-center border-bottom border-dark pb-4">Notice List Page</h1>
 	</div>
 	
 	<div class="row col-md-7 mx-auto">
@@ -37,7 +37,7 @@
 		</table>
 		
 		<!-- paseing -->
-		<div class="row">
+		<div class="row col-md-7 mx-auto">
 			<nav aria-label="Page navigation example">
 			  <ul class="pagination">
 			    <li class="page-item ${pager.before?'disabled':'' }">
@@ -68,13 +68,13 @@
 		</div>	
 		
 		<!-- 검색창 -->	
-		<div class="row">
+		<div class="row col-md-7 mx-auto">
 			<form class="row g-3" action="./list" method="get">
 			  <div class="col-auto">
 			    <label for="kind" class="visually-hidden">kind</label>
 			    <select class="form-select" name="kind" id="kind" aria-label="Default select example">
 				  <option value="title" >제목</option>
-				  <option value="contents">글쓴이</option>
+				  <option value="contents">내용</option>
 				</select>
 			  </div>
 			  <div class="col-auto">
@@ -91,5 +91,6 @@
 		<a href="./add" class="btn btn-primary col-2">게시글등록</a>
 	</div>
 </div>
+<c:import url="../template/common_js.jsp"></c:import>
 </body>
 </html>
