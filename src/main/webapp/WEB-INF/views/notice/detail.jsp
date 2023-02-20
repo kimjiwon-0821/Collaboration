@@ -22,7 +22,7 @@
 		<h3>Body : ${requestScope.dto.noBody}</h3>
 		<div>
 			<c:if test="${not empty dto.noticeImgDTO}">
-			<img src="../resources/upload/notice/${dto.noticeImgDTO.fileName}">
+			<img src="../resources/upload/notice/${dto.noticeImgDTO.fileName}"style="width:60%; height:auto;">
 			</c:if>
 		</div>
 		
