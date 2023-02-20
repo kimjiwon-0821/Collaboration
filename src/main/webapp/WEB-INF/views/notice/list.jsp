@@ -28,7 +28,6 @@
 				<c:forEach items="${list}" var="dto">
 					<tr>
 						<td><a href="./detail?noNum=${dto.noNum}">${dto.noHead}</a></td>
-						<td class="tbl_td">${dto.noHead}</td>
 						<td class="tbl_td">${dto.noUser}</td>
 						<td class="tbl_td">${dto.noDate}</td>
 						<td class="tbl_td">${dto.noWatch}</td>

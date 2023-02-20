@@ -9,6 +9,14 @@ public class NoticeDTO {
 	private String noUser;
 	private Date noDate;
 	private Long noWatch;
+	private NoticeImgDTO noticeImgDTO;
+	
+	public NoticeImgDTO getNoticeImgDTO() {
+		return noticeImgDTO;
+	}
+	public void setNoticeImgDTO(NoticeImgDTO noticeImgDTO) {
+		this.noticeImgDTO = noticeImgDTO;
+	}
 	public Long getNoNum() {
 		return noNum;
 	}

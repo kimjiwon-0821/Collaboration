@@ -18,7 +18,7 @@ public class NoticeDAO {
 	public List<NoticeDTO> getNoticeList(PagerK pagerK) throws Exception {
 	      return sqlSession.selectList(NAMESPACE+"getNoticeList", pagerK);
 	   }
-	public NoticeDTO getNoticeDeail(NoticeDTO noticeDTO) throws Exception{
+	public NoticeDTO getNoticeDetail(NoticeDTO noticeDTO) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"getNoticeDetail", noticeDTO);
 	}
 	public int setNoticeAdd(NoticeDTO noticeDTO) throws Exception{

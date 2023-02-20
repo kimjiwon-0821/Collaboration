@@ -81,13 +81,13 @@
 	 			SELECT NOTICE_SEQ.NEXTVAL FROM DUAL
 	 		</selectKey>
 	 		INSERT INTO NOTICE 
-	 		VALUES (#{noNum} ,#{noHead},#{noBody},#{noDate},#{noUser})
+	 		VALUES (#{noNum} ,#{noHead},#{noBody},SYSDATE,#{noUser})
 	 	</insert>
 	  	<delete id="setNoticeDelete" parameterType="NoticeDTO">
 	  		DELETE NOTICE WHERE NONUM=#{noNum}
 	  	</delete>
 	  	<update id="setNoticeUpdate" parameterType="NoticeDTO">
-	  		UPDATE NOTICE SET NOHEAD=#{noHead},NOBODY=#{noBody},
+	  		UPDATE NOTICE SET NOHEAD=#{noHead},NOBODY=#{noBody}
 	  		WHERE NONUM=#{noNum}
 	  	</update>
 	  	<insert id="setNoticeImgAdd" parameterType="NoticeImgDTO">

@@ -27,7 +27,7 @@ public class NoticeService {
 	}
 	
 	public NoticeDTO getNoticeDetail(NoticeDTO noticeDTO) throws Exception{
-		return noticeDAO.getNoticeDeail(noticeDTO);
+		return noticeDAO.getNoticeDetail(noticeDTO);
 	}
 	
 	 public int setNoticeAdd(NoticeDTO noticeDTO, MultipartFile multipartFile) throws Exception {

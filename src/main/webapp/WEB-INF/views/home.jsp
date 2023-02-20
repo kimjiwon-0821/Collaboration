@@ -8,7 +8,7 @@
 <h1>
 	zziwon world!  
 </h1>
-	<a href="./notice/list">ê²Œì‹œíŒ</a>
+	<a href="./notice/list">noticeŒ</a>
 <P>  The time on the server is ${serverTime}. </P>
 </body>
 </html>

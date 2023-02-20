@@ -55,10 +55,10 @@ public class NoticeController {
 	   @RequestMapping(value = "add", method = RequestMethod.POST)
 	   public ModelAndView setNoticeAdd(NoticeDTO noticeDTO, MultipartFile multipartFile, HttpSession Session) throws Exception {
 	      ModelAndView modelAndView = new ModelAndView();
-	      System.out.println("Name : " + multipartFile.getName());
-	      System.out.println("Original File Name : " + multipartFile.getOriginalFilename());
-	      System.out.println("Size : " + multipartFile.getSize());
-	      System.out.println(Session.getServletContext());
+//	      System.out.println("Name : " + multipartFile.getName());
+//	      System.out.println("Original File Name : " + multipartFile.getOriginalFilename());
+//	      System.out.println("Size : " + multipartFile.getSize());
+//	      System.out.println(Session.getServletContext());
 	      int result = noticeService.setNoticeAdd(noticeDTO, multipartFile);
 	      modelAndView.setViewName("redirect:./list");
 	      return modelAndView;
