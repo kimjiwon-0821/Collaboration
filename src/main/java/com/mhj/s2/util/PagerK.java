@@ -37,6 +37,10 @@ public class PagerK {
 			this.startNum=(curBlock-1)*this.getPerBlock()+1;
 			this.lastNum=curBlock*this.getPerBlock();
 			
+			if(this.getPage()>totalPage) {
+				this.setPage(totalPage);
+			}
+			
 			this.after=true;
 			if(curBlock==totalBlock) {
 				this.lastNum = totalPage;

@@ -26,11 +26,16 @@
 			</c:if>
 		</div>
 		
-		<a href="./delete?noNum=${dto.noNum }">게시물삭제</a>
+		<button type="button" class="btn btn-primary mx-auto col-3"onclick="location.href='./delete?noNum=${dto.noNum }'">게시물삭제</button>
+		<%-- <a href="./delete?noNum=${dto.noNum }">게시물삭제</a> --%>
 		</c:if>
 		<c:if test="${empty dto}">해당 게시물이 존재하지 않습니다.</c:if>
-		<a href="./update?noNum=${dto.noNum }">게시물 수정</a>
-		<a href="./list">목록으로</a>
+		<button type="button" class="btn btn-primary mx-auto col-3"onclick="location.href='./update?noNum=${dto.noNum }'">게시물수정</button>
+		<%-- <a href="./update?noNum=${dto.noNum }">게시물 수정</a> --%>
+		
+		<button type="button" class="btn btn-primary mx-auto col-3"onclick="location.href='./list'">목록으로</button>
+		<!-- <a href="./list">목록으로</a> -->
+		
 	</div>
 </div>
 <c:import url="../template/common_js.jsp"></c:import>
